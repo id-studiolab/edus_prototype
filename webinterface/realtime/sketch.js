@@ -35,7 +35,7 @@ var canvas;
 
 
 function setup() {
-	canvas = createCanvas(windowWidth,windowHeight);
+	canvas = createCanvas(displayWidth,displayHeight);
 
 	w = width+16;
 dx = (TWO_PI / period) * xspacing;
