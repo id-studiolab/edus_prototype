@@ -40,7 +40,7 @@ async function connect(){
 			await characteristic.startNotifications();
 			console.log('> Notifications started');
 			characteristic.addEventListener('characteristicvaluechanged',handleNotifications);
-
+			connected=true;
 		}
 	}catch(error) {
     console.log('Argh! ' + error);
