@@ -33,7 +33,7 @@ var ellipseY;
 
 var canvas;
 
-var numberOfMovementsToPerform = 3;
+var numberOfMovementsToPerform = 20;
 var movementsDone = 0;
 
 var errorArray = [];

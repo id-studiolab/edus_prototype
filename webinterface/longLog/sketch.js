@@ -56,8 +56,8 @@ function dataViz(){
 
 	 stroke(0);
 	 var color=map(dataFromCloud[i].totalErro,0,2000,0,255);
-	 fill(color,color);
-	 var size =map(dataFromCloud[i].totalErro,0,2000,20,(spacingX+spacingY)/2);
+	 noFill();
+	 var size =map(dataFromCloud[i].totalErro,0,10000,20,(spacingX+spacingY)/2);
 	 ellipse(positionX*spacingX+spacingX/2, positionY*spacingY+spacingY/2,size,size );
 	}
 }
