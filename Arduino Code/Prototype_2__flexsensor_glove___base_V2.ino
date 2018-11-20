@@ -61,7 +61,7 @@ unsigned long lastLightUpdateTime = 0;
 int flexThreshold = 10; // threshold which the user can flex the wrist before correction starts.
 int lightSpeed = 20; // delay in the scanning/achievement function.
 int exerciseGoal = 20; // goal
-int exerciseTime = 10; // seconds, total time, so /2 for one way
+int exerciseTime = 8; // seconds, total time, so /2 for one way
 int intermediateTime = 3000; // milliseconds between exercises.
 
 void setup() {
@@ -92,14 +92,14 @@ void setup() {
 }
 
 void loop() {
-Serial.println(digitalRead(tiltPin));
+  Serial.println(digitalRead(tiltPin));
   flexSensor();
   lightRhytm();
 
-  //feedbackLight1();
+  feedbackLight1();
   feedbackLight2();
-  if (tiltRead()&& guideHalt ==1 ) {
-  lightTrace();
+  if (tiltRead() && guideHalt == 1 ) {
+    lightTrace();
     guideHalt = 0;
 
   }
@@ -156,7 +156,7 @@ void feedbackLight1() {
       fill_solid(leds, NUM_LEDS_FEEDBACK, CRGB(0, 0, 0));
       fill_solid(leds + 4, 1, CHSV(110, 255, 100));;
     }
-   
+
   }
 
   FastLED.show();
@@ -180,7 +180,9 @@ void feedbackLight2() {
   if (offsetStrength >= 255) {
     offsetStrength = 255;
   }
-if(offsetNumber>4){offsetNumber = 4;}
+  if (offsetNumber > 4) {
+    offsetNumber = 4;
+  }
 
   //fadeToBlackBy(leds, NUM_LEDS_FEEDBACK, offsetStrength);
 
@@ -188,11 +190,11 @@ if(offsetNumber>4){offsetNumber = 4;}
 
     for (int i = 0; i < offsetNumber; i++) {
       fill_solid(leds + i, 1, CRGB(0, 0, 0));
-      fill_solid(leds + NUM_LEDS_FEEDBACK - i -1, 1, CRGB(0, 0, 0));
+      fill_solid(leds + NUM_LEDS_FEEDBACK - i - 1, 1, CRGB(0, 0, 0));
     }
   }
-fadeToBlackBy(leds,NUM_LEDS_FEEDBACK,offsetStrength);
- 
+  fadeToBlackBy(leds, NUM_LEDS_FEEDBACK, offsetStrength);
+
 
 
 
@@ -260,19 +262,25 @@ void lightRhytm() {
 
     // rgb light blue-ish 64,141,255
     if (!guideHalt) {
-      fill_solid(leds + NUM_LEDS_FEEDBACK, NUM_LEDS_GUIDE, CRGB::Black);
+       fill_solid(leds + NUM_LEDS_FEEDBACK, NUM_LEDS_GUIDE, CRGB::Black);
+      //fadeToBlackBy(leds + NUM_LEDS_FEEDBACK, NUM_LEDS_GUIDE, 150);
       fill_solid(leds + NUM_LEDS_FEEDBACK + guideLocation, 1, CRGB(64, 141, 255));
+
       FastLED.show();
     }
-    if (guideHalt) {
+    if (guideHalt && guideLocation == NUM_LEDS_GUIDE) {
       // do nothing
+    //  fadeToBlackBy(leds + NUM_LEDS_FEEDBACK, NUM_LEDS_GUIDE, 150);
+       fill_solid(leds + NUM_LEDS_FEEDBACK + guideLocation, 1, CRGB(64, 141, 255));
       Serial.println("halt");
     }
     else if (guideDirection == 1) {
       guideLocation++;
       if (guideLocation == NUM_LEDS_GUIDE ) {
         guideHalt = 1;
-        guideDirection = -1;
+        if (guideLocation == NUM_LEDS_GUIDE) {
+          guideDirection = -1;
+        }
       }
     } else if (guideDirection == -1) {
       guideLocation--;
@@ -321,18 +329,19 @@ boolean tiltRead() {
 }
 
 void lightTrace() {
-  for(int j = 0; j<3;j++){for (int i = 0; i <= NUM_LEDS_FEEDBACK-1 ; i++) {
-    fadeToBlackBy(leds, NUM_LEDS_FEEDBACK, 70);
-    fill_solid(leds+i , 1, CHSV(49, 94, 100));
-    FastLED.show();
-    delay(lightSpeed);
-  }
-  for (int i = NUM_LEDS_FEEDBACK-1 ; i >= 0; i--) {
-    fadeToBlackBy(leds, NUM_LEDS_FEEDBACK, 70);
-    fill_solid(leds + i , 1, CHSV(49, 94, 100));
-    FastLED.show();
-    delay(lightSpeed);
-  }
+  for (int j = 0; j < 3; j++) {
+    for (int i = 0; i <= NUM_LEDS_FEEDBACK - 1 ; i++) {
+      fadeToBlackBy(leds, NUM_LEDS_FEEDBACK, 70);
+      fill_solid(leds + i , 1, CHSV(49, 94, 100));
+      FastLED.show();
+      delay(lightSpeed);
+    }
+    for (int i = NUM_LEDS_FEEDBACK - 1 ; i >= 0; i--) {
+      fadeToBlackBy(leds, NUM_LEDS_FEEDBACK, 70);
+      fill_solid(leds + i , 1, CHSV(49, 94, 100));
+      FastLED.show();
+      delay(lightSpeed);
+    }
   }
 }
 
