@@ -6,7 +6,7 @@ var gridcols = 6;
 
 var canvas;
 
-var startDate = new Date('Novembre 16, 2018 00:00:00');
+var startDate = new Date('December 31, 2018 00:00:00');
 
 var spacingX;
 var spacingY;
