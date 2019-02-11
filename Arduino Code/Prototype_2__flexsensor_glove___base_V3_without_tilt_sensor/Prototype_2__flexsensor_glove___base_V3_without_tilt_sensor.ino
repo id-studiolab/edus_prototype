@@ -1,12 +1,15 @@
+// 11 feb. 2019: Pinouts updated and two guide LEDs removed after repairing damaged prototype 
+//               - Richard Bekking "RBK" <rbekking@tudelft.nl>
+
 #include "FastLED.h"
 
 FASTLED_USING_NAMESPACE
 
-#define DATA_PIN    A5
+#define DATA_PIN    5         // RBK: was A5
 #define LED_TYPE    WS2812B
 #define COLOR_ORDER GRB
-#define NUM_LEDS   18
-int NUM_LEDS_GUIDE = 9;
+#define NUM_LEDS   16         // RBK: was 18
+int NUM_LEDS_GUIDE = 7;       // RBK: was 9
 int NUM_LEDS_FEEDBACK = 9;
 
 CRGB leds[NUM_LEDS];
@@ -25,7 +28,7 @@ unsigned long debounceDelay = 25;    // the debounce time; increase if the outpu
 
 
 //pins
-int buttonPin = 5;
+int buttonPin = A1;
 int flexPin = A0;
 //int tiltPin = 9;
 
