@@ -7,14 +7,14 @@ Please find in this repository all the code of the edus prototypes.
 #### how does it work
 - This prototype uses two BNO055 modules by adafruit to measure wrist movements.
 - Rotation data from the two sensors is streamed via bluetooth low energy and analyzed by a client side web application written in p5.js.
-- The application is available here https://lorenzoromagnoli.github.io/edus_prototype/webinterface/realtime/.
+- The application is available here https://id-studiolab.github.io/edus_prototype/webinterface/realtime/.
 - No data are saved or analyzed when the device is not connected to the browser.
 - Once the user completes the exercise the datas about the performances are saved into json format to [a cloud service](http://api.jsonbin.io/b/5bf2c80773474c2f8d989838)
-- Collected data are then visualized [here](https://lorenzoromagnoli.github.io/edus_prototype/webinterface/longLog/)
+- Collected data are then visualized [here](https://id-studiolab.github.io/edus_prototype/webinterface/longLog/)
 
 
 #### How to use it
-- Open [this link](https://lorenzoromagnoli.github.io/edus_prototype/webinterface/realtime/) in your browser
+- Open [this link](https://id-studiolab.github.io/edus_prototype/webinterface/realtime/) in your browser
 - Wear the device.
 	- make sure that the wires come out of the bracelet from the side of your hand.
 	- make sure you are holding the hand piece with your palm touching the application
@@ -33,7 +33,7 @@ Please find in this repository all the code of the edus prototypes.
 
 
 Web interface accessible here
-https://lorenzoromagnoli.github.io/edus_prototype/webinterface/realtime/
+https://id-studiolab.github.io/edus_prototype/webinterface/realtime/
 
 Once the data are saved, they can be visualized Here
-https://lorenzoromagnoli.github.io/edus_prototype/webinterface/longLog/
+https://id-studiolab.github.io/edus_prototype/webinterface/longLog/
