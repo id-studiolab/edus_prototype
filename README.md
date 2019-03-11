@@ -19,7 +19,8 @@ Please find in this repository all the code of the edus prototypes.
 	- make sure that the wires come out of the bracelet from the side of your hand.
 	- make sure you are holding the hand piece with your palm touching the application
 - Turn on the device -> a red light will start blinking.
-- Click **connect** button to search for the device.
+- Click **connect** button to search for the device
+- If it does not connect: try connecting the prototype to power. The battery might have depleted fast.
 - From the dropdown menu select EDUS and click pair
 - wait for the device to connect.
 - Put the arm into rest position and press start
