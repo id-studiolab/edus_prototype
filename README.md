@@ -14,7 +14,7 @@ Please find in this repository all the code of the edus prototypes.
 
 
 #### How to use it
-- Open [this link](https://id-studiolab.github.io/edus_prototype/webinterface/realtime/) in your browser
+- Open [this link](https://id-studiolab.github.io/edus_prototype/webinterface/realtime/) in your browser. Only Chrome!
 - Wear the device.
 	- make sure that the wires come out of the bracelet from the side of your hand.
 	- make sure you are holding the hand piece with your palm touching the application
