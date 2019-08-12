@@ -274,7 +274,7 @@ function calculateAngles() {
 	handRotation = handVector.x;
 	handRotation = map(handRotation, 0, 100, 90, 0);
 
-	//console.log(wristRotation,handRotation*);
+	console.log(wristRotation,handRotation);
 }
 
 function calculateError() {
