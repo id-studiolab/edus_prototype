@@ -102,7 +102,7 @@ function draw() {
 		calculateAngles();
 		calculateError();
 		drawError();
-		//drawArm();
+		drawArm();
 		drawProgressBar();
 		drawErrorGraph();
 
