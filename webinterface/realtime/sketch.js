@@ -240,7 +240,7 @@ function drawTarget() {
 	desiredPosition = height / 2 + desiredPosition - amplitude;
 
 	noStroke();
-	fill(100, 200, 200, ellipseBrightness);
+	fill(200, 100, 200, ellipseBrightness);
 	ellipseY = lerp(ellipseY, desiredPosition, 0.05);
 
 	ellipse(width / 2, ellipseY, 80, 80);
