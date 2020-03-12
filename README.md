@@ -16,6 +16,7 @@ Please find in this repository all the code of the edus prototypes.
 - The prototype uses Adafruit feather M0 board
 - make sure the proper arduino core is installed in the arduino environment as described [here](https://learn.adafruit.com/adafruit-feather-m0-basic-proto/setup)
 - select tools->board- "Adafruit feather M0"
+- make sure the firmware on the bluefruit module is updated following the instructions [here](https://learn.adafruit.com/introducing-adafruit-ble-bluetooth-low-energy-friend/dfu-on-android-4-dot-3-plus) 
 
 
 #### How to use it

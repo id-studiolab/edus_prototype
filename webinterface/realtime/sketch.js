@@ -1,12 +1,74 @@
+var lastMillis = 0;
+var interval = 500;
+
+var accelerometerResetValues = [];
+var accelerometerDisplacementsValues = [];
+
+var wristVector;
+var handVector;
+
+var wristRotation = 0;
+var handRotation = 0;
+
+var varErrorX;
+var varErrorY;
+var varErrorZ;
+
+var distanceFromPerfectAlignment = 0;
+var distanceFromLine = 0;
+
+var minAngle = 0;
+var maxAngle = 25;
+
+
+var xspacing = 16; // Distance between each horizontal location
+var w; // Width of entire wave
+var theta = 0.0; // Start angle at 0
+var amplitude = 100; // Height of wave
+var period = 1000.0; // How many pixels before the wave repeats
+var dx; // Value for incrementing x
+var yvalues; // Using an array to store height values for the wave
+
+var ellipseY;
+
+var canvas;
+
+var numberOfMovementsToPerform = 20;
+var movementsDone = 0;
+
+var errorArray = [];
+
+var gameStatus = 0;
+
+var resetButton;
+var connectButton;
+
+
+var errorDataXSToSave = .4;
+var lastTimeSaved = 0;
+
+var gameAdvancement = 0;
+
+var activityData = {}
+
+var dataFromCloud;
+
+function preload() {
+  getSJsonData();
+}
+
 function setup() {
   canvas = createCanvas( windowWidth, windowHeight );
   console.log( width, height );
 
   w = width + 16;
+  dx = ( TWO_PI / period ) * xspacing;
+  yvalues = new Array( floor( w / xspacing ) );
 
   ellipseY = height / 2;
 
   resetButton = createButton( 'start' );
+  resetButton.mousePressed( resetPosition );
   resetButton.hide();
   resetButton.center()
   connectButton = createButton( 'connect' );
@@ -14,12 +76,12 @@ function setup() {
   connectButton.center()
   //resetButton.hide();
 
+
   textAlign( CENTER, CENTER );
-  rectMode( CENTER );
+
 }
 
 function draw() {
-
   background( '#ffdab9' );
 
   if ( gameStatus == 0 ) {
@@ -264,6 +326,21 @@ function calcWave() {
   }
 }
 
+function renderWave() {
+  // A simple way to draw the wave with an ellipse at each location
+  noFill();
+  stroke( 255, 255, 0 );
+  strokeWeight( 3 );
+
+  beginShape();
+  curveVertex( 0, height / 2 + yvalues[ 0 ] );
+
+  for ( var x = 0; x < yvalues.length; x++ ) {
+    curveVertex( x * xspacing, height / 2 + yvalues[ x ] );
+    //ellipse(x*xspacing, height/2+yvalues[x], 16, 16);
+  }
+  endShape();
+}
 
 window.onresize = function() {
   var w = window.innerWidth;
