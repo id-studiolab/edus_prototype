@@ -9,7 +9,6 @@ Adafruit_BNO055 bnoA = Adafruit_BNO055(-1, BNO055_ADDRESS_A);
 Adafruit_BNO055 bnoB = Adafruit_BNO055(-1, BNO055_ADDRESS_B);
 
 
-#include <Arduino.h>
 #include <SPI.h>
 
 #include "Adafruit_BLE.h"
@@ -37,7 +36,7 @@ Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_
 
 int dataArray[6];
 
-void setup() {
+void setup(void) {
   Serial.begin(115200);
   if (!bnoA.begin()) {
     Serial.print("Ooops, BNO055(A) not detected");
@@ -60,10 +59,9 @@ void setup() {
 
   ble.reset();
   Serial.println();
-
 }
 
-void loop() {
+void loop(void) {
 
   imu::Vector<3> euler = bnoA.getVector(Adafruit_BNO055::VECTOR_EULER);
   dataArray[0] = euler.x();

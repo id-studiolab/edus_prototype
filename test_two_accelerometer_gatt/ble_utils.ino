@@ -82,8 +82,9 @@ void initBluetooth() {
   if ( ! ble.factoryReset() ) {
     Serial.println(F("Couldn't factory reset"));
   }
-
-  ble.echo(true);
+  
+  /* Disable command echo from Bluefruit */
+  ble.echo(false);
 
   //set the name of the device
   ble.print("AT+GAPDEVNAME="        );
@@ -173,4 +174,3 @@ void updateAccelerometerValues(int x1, int y1, int z1, int x2, int y2, int z2  )
   ble.waitForOK();
 
 }
-
