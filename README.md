@@ -12,6 +12,11 @@ Please find in this repository all the code of the edus prototypes.
 - Once the user completes the exercise the datas about the performances are saved into json format to [a cloud service](http://api.jsonbin.io/b/5bf2c80773474c2f8d989838)
 - Collected data are then visualized [here](https://id-studiolab.github.io/edus_prototype/webinterface/longLog/)
 
+#### How to upload the firmware
+- The prototype uses Adafruit feather M0 board
+- make sure the proper arduino core is installed in the arduino environment as described [here](https://learn.adafruit.com/adafruit-feather-m0-basic-proto/setup)
+- select tools->board- "Adafruit feather M0"
+
 
 #### How to use it
 - Open [this link](https://id-studiolab.github.io/edus_prototype/webinterface/realtime/) in your browser. Only Chrome!
